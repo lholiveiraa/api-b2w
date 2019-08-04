@@ -109,7 +109,7 @@ app.get("/planets/:id", (req, res) => {
 }); 
 
   // adicionando planeta no banco mongodb
-  app.post("planets/add", (req, res) => {
+  app.post("/planets", (req, res) => {
     var planeta = new Planeta( 
       {
       nome: req.body.nome,
@@ -154,7 +154,7 @@ else {
   
 
   // removendo planeta no banco mongodb
-  app.delete("/planets/delete", (req, res) => {
+  app.delete("/planets", (req, res) => {
     Planeta.findOneAndRemove(req.params.id)
       .then(x => {
         res.status(200).send({
